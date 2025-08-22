@@ -26,13 +26,13 @@ namespace Interest.Test.ApiControllerTest
         public void CalculateSimpleInterest_ValidInput_ReturnCorrectResult()
         {
             // Arrange
-            decimal principal = 1000;
-            decimal rate = 5;
+            int principal = 1000;
+            int rate = 5;
             int time = 2;
             double expectedInterest = (double)(principal * rate / 100 * time);
 
             _mocksimpleInterestService
-                .Setup(f => f.CalculateSimpleInterest(It.IsAny<decimal>(), It.IsAny<decimal>(), It.IsAny<int>()))
+                .Setup(f => f.CalculateSimpleInterest(It.IsAny<int>(), It.IsAny<int>(), It.IsAny<int>()))
                 .Returns(expectedInterest);
 
             // Act
@@ -56,7 +56,7 @@ namespace Interest.Test.ApiControllerTest
         public void CalculateSimpleInterest_InvalidInput_RequestBadRequest(int principal, int rate, int time)
         {
             _mocksimpleInterestService
-                .Setup(f => f.CalculateSimpleInterest(It.IsAny<decimal>(), It.IsAny<decimal>(), It.IsAny<int>()))
+                .Setup(f => f.CalculateSimpleInterest(It.IsAny<int>(), It.IsAny<int>(), It.IsAny<int>()))
                 .Throws(new ArgumentException());
 
             var result = _controller.CalculateSimpleInterest(principal, rate, time) as BadRequestObjectResult;
@@ -69,8 +69,8 @@ namespace Interest.Test.ApiControllerTest
         public void CalculateCompoundInterest_ValidInput_ReturnCorrectResult()
         {
             // Arrange
-            decimal principal = 1000;
-            decimal rate = 5;
+            int principal = 1000;
+            int rate = 5;
             int time = 2;
             int frequency = 4;
 
@@ -80,7 +80,7 @@ namespace Interest.Test.ApiControllerTest
                                       (double)principal;
 
             _mockcompoundInterestService
-                .Setup(f => f.CalculateCompoundInterest(It.IsAny<decimal>(), It.IsAny<decimal>(), It.IsAny<int>(), It.IsAny<int>()))
+                .Setup(f => f.CalculateCompoundInterest(It.IsAny<int>(), It.IsAny<int>(), It.IsAny<int>(), It.IsAny<int>()))
                 .Returns(expectedInterest);
 
             // Act
@@ -106,7 +106,7 @@ namespace Interest.Test.ApiControllerTest
         public void CalculateCompoundInterest_InvalidInput_RequestBadRequest(int principal, int rate, int time, int frequency)
         {
             _mockcompoundInterestService
-                .Setup(f => f.CalculateCompoundInterest(It.IsAny<decimal>(), It.IsAny<decimal>(), It.IsAny<int>(), It.IsAny<int>()))
+                .Setup(f => f.CalculateCompoundInterest(It.IsAny<int>(), It.IsAny<int>(), It.IsAny<int>(), It.IsAny<int>()))
                 .Throws(new ArgumentException());
 
             var result = _controller.CalculateCompoundInterest(principal, rate, time, frequency) as BadRequestObjectResult;

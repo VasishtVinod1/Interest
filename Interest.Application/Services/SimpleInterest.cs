@@ -10,7 +10,7 @@ namespace Interest.Application.Services
 {
     public class SimpleInterest : ISimpleInterest
     {
-        public double CalculateSimpleInterest(decimal principal, decimal rate, int time)
+        public double CalculateSimpleInterest(int principal, int rate, int time)
         {
             if (principal <= 0 || rate < 0 || time <= 0)
             {

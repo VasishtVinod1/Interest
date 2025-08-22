@@ -8,6 +8,6 @@ namespace Interest.Application.Contract
 {
     public interface ISimpleInterest
     {
-        double CalculateSimpleInterest(decimal principal, decimal rate, int time);
+        double CalculateSimpleInterest(int principal, int rate, int time);
     }
 }

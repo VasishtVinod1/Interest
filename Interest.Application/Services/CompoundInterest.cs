@@ -9,7 +9,7 @@ namespace Interest.Application.Services
 {
     public class CompoundInterest : ICompoundInterest
     {
-        public double CalculateCompoundInterest(decimal principal, decimal rate, int time, int frequency)
+        public double CalculateCompoundInterest(int principal, int rate, int time, int frequency)
         {
             if (principal <= 0 || rate < 0 || time <= 0 || frequency <= 0)
             {

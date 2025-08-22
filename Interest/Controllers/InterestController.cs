@@ -16,7 +16,7 @@ namespace Interest.Controllers
         }
 
         [HttpGet("compound")]
-        public IActionResult CalculateCompoundInterest(decimal principal, decimal rate, int time, int frequency)
+        public IActionResult CalculateCompoundInterest(int principal, int rate, int time, int frequency)
         {
             try
             {
@@ -30,7 +30,7 @@ namespace Interest.Controllers
         }
 
         [HttpGet("simple")]
-        public IActionResult CalculateSimpleInterest(decimal principal, decimal rate, int time)
+        public IActionResult CalculateSimpleInterest(int principal, int rate, int time)
         {
             try
             {
