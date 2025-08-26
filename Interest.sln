@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36310.24 d17.14
+VisualStudioVersion = 17.14.36310.24
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interest", "Interest\Interest.csproj", "{D14AFBD9-B7EB-449E-9AAC-3EFAB3DD9D27}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interest.Api", "Interest\Interest.Api.csproj", "{D14AFBD9-B7EB-449E-9AAC-3EFAB3DD9D27}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interest.Application", "Interest.Application\Interest.Application.csproj", "{521631FA-F4F9-4F1F-A401-10BF762FB2AC}"
 EndProject

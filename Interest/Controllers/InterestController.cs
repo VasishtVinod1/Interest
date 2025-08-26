@@ -15,13 +15,13 @@ namespace Interest.Controllers
             _simpleInterestService = simpleInterestService;
         }
 
-        [HttpGet("compound")]
+        [HttpPost("compound")]
         public IActionResult CalculateCompoundInterest(int principal, int rate, int time, int frequency)
         {
             try
             {
                 var result = _compoundInterestService.CalculateCompoundInterest(principal, rate, time, frequency);
-                return Ok(new { CompoundInterest = result });
+                return Ok(result);
             }
             catch (ArgumentException ex)
             {
@@ -29,13 +29,13 @@ namespace Interest.Controllers
             }
         }
 
-        [HttpGet("simple")]
+        [HttpPost("simple")]
         public IActionResult CalculateSimpleInterest(int principal, int rate, int time)
         {
             try
             {
                 var result = _simpleInterestService.CalculateSimpleInterest(principal, rate, time);
-                return Ok(new { SimpleInterest = result });
+                return Ok(result);
             }
             catch (ArgumentException ex)
             {

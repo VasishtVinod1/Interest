@@ -32,20 +32,18 @@ namespace Interest.Test.ServiceTest
         [DataRow(-1000, 5, 2)]
         public void CalculateSimpleInterest_WithZeroPrincipal_ThrowsArgumentException(int principal, int rate, int time)
         {
-            //    Assert.ThrowsExactly<ArgumentException>(() =>
-            //        _simpleinterest.CalculateSimpleInterest(0, 5, 2));
-            //}
-
-            //[TestMethod]
-            //public void CalculateSimpleInterest_WithNegativePrincipal_ThrowsArgumentException()
-            //{
-            //    Assert.ThrowsExactly<ArgumentException>(() =>
-            //        _simpleinterest.CalculateSimpleInterest(-1000, 5, 2));
-            //}
-
-            Assert.ThrowsExactly<ArgumentException>(() => _simpleinterest.CalculateSimpleInterest(principal, rate, time));
-
+            Assert.ThrowsExactly<ArgumentException>(() =>
+                _simpleinterest.CalculateSimpleInterest(principal, rate, time));
         }
+
+        [TestMethod]
+        public void CalculateSimpleInterest_WithNegativePrincipal_ThrowsArgumentException()
+        {
+            Assert.ThrowsExactly<ArgumentException>(() =>
+                _simpleinterest.CalculateSimpleInterest(-1000, 5, 2));
+        }
+
+        
 
     }
 }

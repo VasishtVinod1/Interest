@@ -41,11 +41,9 @@ namespace Interest.Test.ApiControllerTest
             // Assert
             Assert.IsNotNull(result);
 
-            var simpleInterest = result.Value?.GetType()
-                .GetProperty("SimpleInterest")
-                ?.GetValue(result.Value, null);
+           
 
-            Assert.AreEqual(expectedInterest, (double)simpleInterest!, 0.001);
+            Assert.AreEqual(expectedInterest, (double)result.Value!, 0.001);
 
             _mocksimpleInterestService.Verify(f => f.CalculateSimpleInterest(principal, rate, time), Times.Once);
         }
@@ -89,11 +87,9 @@ namespace Interest.Test.ApiControllerTest
             // Assert
             Assert.IsNotNull(result);
 
-            var compoundInterest = result.Value?.GetType()
-                .GetProperty("CompoundInterest")
-                ?.GetValue(result.Value, null);
+           
 
-            Assert.AreEqual(expectedInterest, (double)compoundInterest!, 0.0001);
+            Assert.AreEqual(expectedInterest, (double)result.Value!, 0.0001);
 
             _mockcompoundInterestService.Verify(f => f.CalculateCompoundInterest(principal, rate, time, frequency), Times.Once);
         }
